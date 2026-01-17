@@ -1,0 +1,17 @@
+const { defineConfig } = require("cypress");
+
+module.exports = defineConfig({
+  e2e: {
+    viewportHeight: 1290,
+    viewportWidth: 720,
+     watchForFileChanges: false,
+    specPattern: "cypress/e2e/**/*.feature",
+    baseUrl: "https://coffee-cart.app/",
+    timeout: 15000,
+    setupNodeEvents(on, config) {
+       const cucumber = require('cypress-cucumber-preprocessor').default;
+    on('file:preprocessor', cucumber());
+  
+    },
+  },
+});
