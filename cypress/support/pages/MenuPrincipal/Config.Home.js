@@ -13,9 +13,13 @@ export const HomeElements = {
     CHECKOUT: '[data-test="checkout"]',
     CART_MODAL: '.cart-preview.show',
     ITENS_NO_MODAL: '.list-item',
+    LIST_ITEMS: 'li.list-item:visible',
     BOTAO_CARRINHO_MENU: 'li:nth-child(2) > a',
     MODAL_PROMOCAO: '.promo',
-    BOTAO_YES_PROMOCAO: '.yes'
+    BOTAO_YES_PROMOCAO: '.yes',
+    NAME_ALEATORIO : "testeacenture" + Math.random().toString(36).substring(2,7),
+    EMAIL_ALEATORIO: "ateste" + Math.random().toString(36).substring(2, 5) + "@teste.com",
+    EMAIL_ALEATORIO_ERRADO: "teste" + Math.random().toString(36).substring(2, 5) + ".com"
 };
 
 export const listaCafes = [

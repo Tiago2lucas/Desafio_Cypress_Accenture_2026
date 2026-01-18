@@ -1,4 +1,5 @@
 
+
 export const CartElements = {
     PAGE_CART: 'a[href="/cart"]',
     CARRINHO_COMPRAS: 'div.list',
@@ -9,5 +10,6 @@ export const CartElements = {
     INPUT_NAME: '#name',
     INPUT_EMAIL: '#email',
     BUTTON_FINALIZAR_COMPRA: '#submit-payment',
-    MESSAGE_COMPRA_SUCESSO: '.snackbar.success'
+    MESSAGE_COMPRA_SUCESSO: '.snackbar.success',
+    CHECKBOX_PAGAMENTO : '#promotion'
 };

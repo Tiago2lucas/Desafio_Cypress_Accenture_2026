@@ -7,6 +7,8 @@ export default defineConfig({
      watchForFileChanges: false,
     specPattern: "cypress/e2e/**/*.feature",
     baseUrl: "https://coffee-cart.app/",
+    screenshotsFolder: 'cypress/evidencias',
+    trashAssetsBeforeRuns:true,
     setupNodeEvents(on, config) {
        const cucumber = require('cypress-cucumber-preprocessor').default;
     on('file:preprocessor', cucumber());

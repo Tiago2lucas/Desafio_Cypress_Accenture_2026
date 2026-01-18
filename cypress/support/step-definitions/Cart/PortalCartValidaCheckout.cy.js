@@ -16,5 +16,6 @@ When('o usuário realiza o checkout informando nome e e-mail válidos', () => {
 })
 
 Then('o sistema deve exibir uma mensagem de confirmação de compra com sucesso', () => {
-PageCart.finalizarCompraComSucesso();
+    PageCart.preencheCamposPagamento();
+    PageCart.finalizarCompraSucesso()
 });

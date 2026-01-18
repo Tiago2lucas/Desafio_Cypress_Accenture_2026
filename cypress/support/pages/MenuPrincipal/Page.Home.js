@@ -15,6 +15,8 @@ class PageHome {
     }
 
     selecionarCoffeAleatorios() {
+
+        
         const quantidadeParaClicar = Math.floor(Math.random() * 4) + 3;
 
         for (let i = 0; i < quantidadeParaClicar; i++) {
@@ -24,6 +26,8 @@ class PageHome {
 
         Cypress.env('quantidadeSorteada', quantidadeParaClicar);
         cy.log(`Foram adicionados ${quantidadeParaClicar} cafés.`);
+
+    
     }
 
     validarCarrinhoComEnv() {
@@ -35,8 +39,10 @@ class PageHome {
     }
 
     validarModalTotalAberto() {
+
         cy.get(HomeElements.CHECKOUT).trigger('mouseover');
         cy.get(HomeElements.CART_MODAL).should('be.visible');
+        cy.screenshot('Modal-Total-Aberto');
     }
 
     verificarConsistenciaCarrinho() {
@@ -65,10 +71,14 @@ class PageHome {
     cafesFixos.forEach(cafe => {
         cy.get(cafe).click();
     });
+    
     }
 
     verificarModalAbertoPromocao() {
         cy.get(HomeElements.MODAL_PROMOCAO).should('be.visible');
+         cy.screenshot('1.Promocao-mocha');
+        
+
     }
 
     clicarBotaoYesPromocao() {
