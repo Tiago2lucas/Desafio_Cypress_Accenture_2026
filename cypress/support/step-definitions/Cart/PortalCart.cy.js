@@ -1,13 +1,13 @@
 import { Given, When, Then, And} from 'cypress-cucumber-preprocessor/steps';
 import PageCart from '../../pages/Cart/Page.Cart';
 
-When('o usuario acessar o carrinho de compras', () => {
+And('acessa a página do carrinho de compras', () => {
     PageCart.acessarPaginaCarrinho();
 });
-And('o usuario visualiza os produtos adicionados ao carrinho com seus respectivos nomes e preços', () => {
+Then('o usuário deve visualizar todos os produtos com seus respectivos nomes e preços', () => {
     PageCart.validarCarrinho();
     
 });
-And('o usuario valida o valor total dos produtos adicionados ao carrinho', () => { 
+And('o valor total deve corresponder à soma dos itens adicionados', () => { 
     PageCart.validarCarrinhoComBaseNosValoresGlobais();
 })

@@ -1,6 +1,7 @@
 // Page.Cart.js
 import { CHECKOUT } from '../../pages/MenuPrincipal/Page.Home.js';
-import { CartElements } from './Config.Cart.js'; // Importando as variáveis que separamos
+import { CartElements } from './Config.Cart.js'; 
+
 
 class PageCart {
 
@@ -61,8 +62,10 @@ class PageCart {
     }
 
     finalizarCompraComSucesso() {
-        cy.get(CartElements.INPUT_NAME).type('Usuario Teste');
-        cy.get(CartElements.INPUT_EMAIL).type('usuario@teste.com');
+        const NAME_ALEATORIO= "testeacenture" + Math.random().toString(36).substring(2,7)
+        const EMAIL_ALEATORIO = "ateste" + Math.random().toString(36).substring(2, 5) +"@teste.com"
+        cy.get(CartElements.INPUT_NAME).type(NAME_ALEATORIO);
+        cy.get(CartElements.INPUT_EMAIL).type(EMAIL_ALEATORIO);
         cy.get(CartElements.BUTTON_FINALIZAR_COMPRA).click();
         cy.get(CartElements.MESSAGE_COMPRA_SUCESSO).invoke('text')
             .should('not.be.empty');

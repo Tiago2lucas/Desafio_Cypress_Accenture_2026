@@ -1,9 +1,9 @@
-const { defineConfig } = require("cypress");
+import { defineConfig } from "cypress";
 
-module.exports = defineConfig({
+export default defineConfig({
   e2e: {
     viewportHeight: 1290,
-    viewportWidth: 720,
+    viewportWidth: 1080,
      watchForFileChanges: false,
     specPattern: "cypress/e2e/**/*.feature",
     baseUrl: "https://coffee-cart.app/",

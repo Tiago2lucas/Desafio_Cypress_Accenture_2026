@@ -3,23 +3,23 @@
 
 Funcionalidade: Compras de produtos no site Coffee Cart
 
-Contexto: Nagevar até a página principal do Coffee Cart
-Dado o usuario acessar a página Coffe Cart
+Contexto: Navegar até a página principal do Coffee Cart
+Dado que o usuário acessa a página do Coffee Cart
 Quando ele visualiza o menu principal do site
 
-@ValidarProdutos
-Cenário: Validar produtos diponiveis  da loja
-Entao o sistema deve exibe a listagem de produtos disponíveis
 
-@ComprarMultiplosProdutos
-Cenário: Escolher multiplos produtos para uma nova compra
-E o usuario seleciona os produtos desejados
-Quando ele adicionar produtos ao carrinho de compras
-Entao o usuario visualiza o valor total dos produtos adicionados no modal checkout
+Cenário: Validar produtos disponíveis na loja
+Então o sistema deve exibir a listagem de produtos disponíveis
 
-@PromocaoProdutoMocha
-Cenário: Escolha multiplos produtos para recebe uma promocao
-Quando o usuario selecionar multiplos produtos
-E o sistema deve exibir um modal com oferta promocional do produto Mocha
-Entao o usuario adicionar o produto Mocha ao carrinho de compras
-E o modal deve ser fechado
+
+Cenário: Escolher múltiplos produtos para uma nova compra
+Dado que o usuário seleciona os produtos desejados
+Quando ele adiciona os produtos ao carrinho de compras
+Então o usuário visualiza o valor total dos produtos no botão de checkout
+
+
+Cenário: Receber promoção ao selecionar múltiplos produtos
+Quando o usuário seleciona três produtos diferentes
+Então o sistema deve exibir um modal com oferta promocional do produto Mocha
+E o usuário adiciona o produto Mocha ao carrinho de compras
+E o modal deve ser fechado com sucesso

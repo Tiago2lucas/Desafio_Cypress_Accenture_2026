@@ -6,9 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-   "author": "Tiago2lucas",
-    "license": "ISC",
-    "type": "commonjs",
+  "author": "Tiago2lucas",
+  "license": "ISC",
+  "type": "commonjs",
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": false,
     "stepDefinitions": "cypress/support/step-definitions/"

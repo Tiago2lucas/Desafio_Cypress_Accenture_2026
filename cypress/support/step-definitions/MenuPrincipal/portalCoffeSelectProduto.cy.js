@@ -1,17 +1,17 @@
 import {Given, When, Then, And} from "cypress-cucumber-preprocessor/steps";
 import PageHome from "../../pages/MenuPrincipal/Page.Home";
 
-And("o usuario seleciona os produtos desejados", () => {
+Given("que o usuário seleciona os produtos desejados", () => {
     PageHome.selecionarCoffeAleatorios();
 
 });
 
-When("ele adicionar produtos ao carrinho de compras", () => {
+When("ele adiciona os produtos ao carrinho de compras", () => {
     PageHome.validarCarrinhoComEnv();
     
 });
 
-Then("o usuario visualiza o valor total dos produtos adicionados no modal checkout", () => {
+Then("o usuário visualiza o valor total dos produtos no botão de checkout", () => {
     PageHome.validarModalTotalAberto();
     PageHome.verificarConsistenciaCarrinho();
 });

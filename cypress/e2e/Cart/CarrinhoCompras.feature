@@ -1,45 +1,29 @@
 #utf-8
 #language: pt
 
-Funcionalidade: Realizar compras e remocao do carrinho no site Coffee Cart
+Funcionalidade: Realizar compras e remoção de itens no carrinho
 
-Contexto: Navegar até a página do carrinho de compras
-Dado o usuario acessar a página Coffe Cart
+Contexto:
+Dado que o usuário acessa a página do Coffee Cart
 Quando ele visualiza o menu principal do site
 
-
-Cenario: Validar adição de produtos com item promocional no carrinho
-E o usuario selecionar multiplos produtos
+Cenário: Validar adição de produtos com item promocional no carrinho
+Quando o usuário seleciona três produtos diferentes
 E o sistema deve exibir um modal com oferta promocional do produto Mocha
-E o usuario adicionar o produto Mocha ao carrinho de compras
-E o modal deve ser fechado
-Quando o usuario acessar o carrinho de compras
-E o usuario visualiza os produtos adicionados ao carrinho com seus respectivos nomes e preços
-E o usuario valida o valor total dos produtos adicionados ao carrinho
-Entao o usuario valida o produto promocional adicionado ao carrinho
+E o usuário adiciona o produto Mocha ao carrinho de compras
+E acessa a página do carrinho de compras
+Então o usuário deve visualizar todos os produtos com seus respectivos nomes e preços
+E o valor total deve corresponder à soma dos itens adicionados
+E o item promocional Mocha deve estar listado no carrinho
 
-Cenario:  Valida o checkout do carrinho de compras
-E o usuario selecionar multiplos produtos
-E o sistema deve exibir um modal com oferta promocional do produto Mocha
-E o usuario adicionar o produto Mocha ao carrinho de compras
-E o modal deve ser fechado
-E o usuario acessar o carrinho de compras
-E o usuario visualiza os produtos adicionados ao carrinho com seus respectivos nomes e preços
-E o usuario valida o valor total dos produtos adicionados ao carrinho
-E o usuario valida o produto promocional adicionado ao carrinho
-E o usuario remove um item do carrinho de compras
-E o usuario valida que um item foi removido com sucesso do carrinho de compras
-Quando o usuario realiza o checkout com name e email validos no modal apresentado
-Entao o usuario finaliza a compra visualizando o modal com mensagem de confirmacao da compra sucesso
 
-Cenario: Valida a remocao de um item do carrinho com sucesso
-Quando o usuario selecionar multiplos produtos
-E o sistema deve exibir um modal com oferta promocional do produto Mocha
-E o usuario adicionar o produto Mocha ao carrinho de compras
-E o modal deve ser fechado
-E o usuario acessar o carrinho de compras
-E o usuario visualiza os produtos adicionados ao carrinho com seus respectivos nomes e preços
-E o usuario valida o valor total dos produtos adicionados ao carrinho
-Entao o usuario valida o produto promocional adicionado ao carrinho
-E o usuario remove um item do carrinho de compras
-E o usuario valida que um item foi removido com sucesso do carrinho de compras
+Cenário: Validar a remoção de um item do carrinho
+Dado que o usuário adicionou três produtos e o item promocional Mocha
+E acessa a página do carrinho de compras
+Quando o usuário remove um item do carrinho de compras
+Então o sistema deve atualizar a lista de produtos com sucesso
+
+Cenário: Validar o checkout com sucesso
+Dado que o usuário está na página do carrinho com produtos adicionados
+Quando o usuário realiza o checkout informando nome e e-mail válidos
+Então o sistema deve exibir uma mensagem de confirmação de compra com sucesso
