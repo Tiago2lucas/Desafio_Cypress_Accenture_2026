@@ -11,13 +11,14 @@ const COFFE_LATTE = '[data-test="Cafe_Latte"]'
 const COFFE_ESPRESSO_CON_PANNA = '[data-test="Espresso_Con Panna"]'
 const COFFE_BREVE = '[data-test="Cafe_Breve"]'
 
-const CHECKOUT = '[data-test="checkout"]'
+export const CHECKOUT = '[data-test="checkout"]'
 const CART_MODAL = '.cart-preview.show'
-// AJUSTE SENIOR: Seletor preciso para os itens da lista dentro do modal
+
 const ITENS_NO_MODAL = '.list-item' 
 const BOTAO_CARRINHO_MENU = 'li:nth-child(2) > a'
 const MODAL_PROMOCAO = '.promo'
 const BOTAO_YES_PROMOCAO = '.yes'
+
 const listaCafes = [
             COFFE_ESPRESSO, COFFE_ESPRESSO_MACCHIATO, COFFE_CAPPUCCINO,
             COFFE_MOCHA, COFFE_FLAT_WHITE, COFFE_AMERICANO,
@@ -31,14 +32,11 @@ class PageHome {
     }
    
     validacaoCoffeMenu() {
-        const cafes = [
-            COFFE_ESPRESSO, COFFE_ESPRESSO_MACCHIATO, COFFE_CAPPUCCINO,
-            COFFE_MOCHA, COFFE_FLAT_WHITE, COFFE_AMERICANO,
-            COFFE_LATTE, COFFE_ESPRESSO_CON_PANNA, COFFE_BREVE
-        ]
-        cafes.forEach(cafe => {
-            cy.get(cafe).should('be.visible')
+       
+        listaCafes.forEach(listaCafes => {
+            cy.get(listaCafes).should('be.visible')
         })
+
     }
 
     selecionarCoffeAleatorios() {
@@ -67,10 +65,16 @@ class PageHome {
         cy.get(CHECKOUT).trigger('mouseover');
         cy.get(CART_MODAL).should('be.visible');
     }
+
     verificarConsistenciaCarrinho() {
         cy.get(ITENS_NO_MODAL)
             .its('length')
-            .should('be.greaterThan', 0);
+          .then((quantidade) => {
+        expect(quantidade).to.be.greaterThan(0);
+
+      // salva no Cypress.env
+      Cypress.env('quantidadeItens', quantidade);
+    });
 
         cy.get(CHECKOUT)
             .invoke('text')
@@ -78,17 +82,20 @@ class PageHome {
                 const total = parseFloat(texto.match(/\d+\.\d+/)[0]);
                 expect(total).to.be.greaterThan(0);
             });
-    }
-    
-  
-    selecionarQtItemPromo() {
-        const quantidadeParaClicar = 3;
+    }  
 
-        for (let i = 0; i < quantidadeParaClicar; i++) {
-            const indiceAleatorio = Math.floor(Math.random() * listaCafes.length);
-            cy.get(listaCafes[indiceAleatorio]).click();
-      
-        }
+    
+    selecionarQtItemPromo() {
+       const cafesFixos = [
+        COFFE_ESPRESSO, 
+        COFFE_CAPPUCCINO, 
+        COFFE_AMERICANO
+    ];
+
+    // Clica em cada um dos cafés da lista fixa
+    cafesFixos.forEach(cafe => {
+        cy.get(cafe).click();
+    });
     }
     verificarModalAbertoPromocao() {
         cy.get(MODAL_PROMOCAO).should('be.visible');

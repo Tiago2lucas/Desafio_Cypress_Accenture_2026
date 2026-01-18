@@ -1,5 +1,5 @@
 import {Given, When, Then, And} from "cypress-cucumber-preprocessor/steps";
-import PageHome from "../pages/MenuPrincipal/Page.Home";
+import PageHome from "../../pages/MenuPrincipal/Page.Home";
 
 And("o usuario seleciona os produtos desejados", () => {
     PageHome.selecionarCoffeAleatorios();

@@ -1,5 +1,5 @@
 import { Given, When, Then, And} from 'cypress-cucumber-preprocessor/steps';
-import PageHome from '../pages/MenuPrincipal/Page.Home';
+import PageHome from '../../pages/MenuPrincipal/Page.Home';
 
 When('o usuario selecionar multiplos produtos', () => {
     PageHome.selecionarQtItemPromo();

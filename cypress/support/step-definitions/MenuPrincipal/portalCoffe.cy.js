@@ -1,5 +1,5 @@
 import { Given, When, Then} from "cypress-cucumber-preprocessor/steps";
-import PageHome from "../../support/pages/MenuPrincipal/Page.Home";
+import PageHome from "../../pages/MenuPrincipal/Page.Home";
 
 Given("o usuario acessar a página Coffe Cart", () => {
     cy.visit("/");
